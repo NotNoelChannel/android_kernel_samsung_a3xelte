@@ -1,6 +1,10 @@
 #
 # Automatically generated file; DO NOT EDIT.
+<<<<<<< HEAD:arch/arm64/configs/a3xelte_00_defconfig
 # Linux/arm64 3.10.61 Kernel Configuration
+=======
+# Linux/arm64 3.10.107 Kernel Configuration
+>>>>>>> edfaef869 (update to 3.10.107):arch/arm64/configs/exynos7580-a3xelte_defconfig
 #
 CONFIG_ARM64=y
 CONFIG_64BIT=y
