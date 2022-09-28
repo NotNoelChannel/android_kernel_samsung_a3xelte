@@ -1,0 +1,30 @@
+name: Kernel CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-18.04
+
+    steps:
+    - name: Checkout Kernel Source
+      uses: actions/checkout@v2
+
+    - name: Getting Toolchain
+      run: |
+        sudo apt-get install lib32z1
+        sudo git clone --depth 1 https://github.com/djb77/aarch64-cortex_a53-linux-gnueabi /opt/toolchains/aarch64-cortex_a53-linux-gnueabi/
+    - name: Building Kernel
+      run: |
+        make -j16 ARCH=arm64 lineageos_a3xelte_defconfig
+        make -j16
+    - name: Moving Output # CI only
+      run: |
+        mkdir -p /home/runner/work/output
+        cp arch/arm64/boot/Image /home/runner/work/output/boot.img-kernel
+    - name: Uploading Output
+      uses: actions/upload-artifact@v2
+      with:
+        name: zImage
+        path: /home/runner/work/output/boot.img-kernel
