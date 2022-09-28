@@ -17,7 +17,7 @@ jobs:
         sudo git clone --depth 1 https://github.com/djb77/aarch64-cortex_a53-linux-gnueabi /opt/toolchains/aarch64-cortex_a53-linux-gnueabi/
     - name: Building Kernel
       run: |
-        make -j16 ARCH=arm64 lineageos_a3xelte_defconfig
+        make -j16 ARCH=arm64 alexax_a3xelte_defconfig
         make -j16
     - name: Moving Output # CI only
       run: |
