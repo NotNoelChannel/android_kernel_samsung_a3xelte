@@ -22,7 +22,7 @@ jobs:
     - name: Moving Output # CI only
       run: |
         mkdir -p /home/runner/work/output
-        cp arch/arm/boot/Image /home/runner/work/output/zImage
+        cp arch/arm64/boot/Image /home/runner/work/output/zImage
     - name: Uploading Output
       uses: actions/upload-artifact@v2
       with:
